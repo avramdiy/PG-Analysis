@@ -16,6 +16,8 @@
 
 ### 3rd Commit
 
+- Initiate /yearly_avg_open to visualize the yearly average open price line.
+
 ### 4th Commit
 
 ### 5th Commit
