@@ -12,6 +12,8 @@
 
 ### 2nd Commit
 
+- Drop "OpenInt" column and show rows dated from 1970-01-01 to 1979-12-31 to process visualizations.
+
 ### 3rd Commit
 
 ### 4th Commit
