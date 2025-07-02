@@ -20,4 +20,6 @@
 
 ### 4th Commit
 
+- Initiate /monthly_high_boxplot to visualize the monthly "High" price through a boxplot.
+
 ### 5th Commit
