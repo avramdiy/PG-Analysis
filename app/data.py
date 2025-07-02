@@ -110,5 +110,33 @@ def monthly_high_boxplot():
     except Exception as e:
         return f"An error occurred while processing the file: {e}"
 
+@app.route('/closing_price_distribution')
+def closing_price_distribution():
+    file_path = r"C:\Users\avram\OneDrive\Desktop\TRG Week 30\pg.us.txt"
+    try:
+        # Load and filter the DataFrame
+        df = pd.read_csv(file_path, sep=",", engine="python", parse_dates=['Date'], infer_datetime_format=True)
+        df = df[(df['Date'] >= "1970-01-01") & (df['Date'] <= "1979-12-31")]
+        if 'OpenInt' in df.columns:
+            df = df.drop(columns=['OpenInt'])
+
+        # Plot the histogram
+        plt.figure(figsize=(10, 6))
+        plt.hist(df['Close'], bins=20, color='green', edgecolor='black', alpha=0.7)
+        plt.title('Distribution of Closing Prices (1970-1979)', fontsize=16)
+        plt.xlabel('Closing Price', fontsize=12)
+        plt.ylabel('Frequency', fontsize=12)
+        plt.grid(True)
+
+        # Save the plot to a BytesIO buffer
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+        plt.close()
+
+        return Response(buf, mimetype='image/png')
+    except Exception as e:
+        return f"An error occurred while processing the file: {e}"
+
 if __name__ == '__main__':
     app.run(debug=True)

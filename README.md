@@ -23,3 +23,5 @@
 - Initiate /monthly_high_boxplot to visualize the monthly "High" price through a boxplot.
 
 ### 5th Commit
+
+- Initiate /closing_price_distribution to visualize the frequency of closing prices through a histogram.
